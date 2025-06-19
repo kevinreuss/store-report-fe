@@ -908,7 +908,7 @@
           formData.append("store_name", storeName);
 
           const response = await fetch(
-            "http://localhost:5001/generate-report-demo",
+            "https://api.store-report.com/generate-report-demo",
             {
               method: "POST",
               body: formData,
