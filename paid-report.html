@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Store Report</title>
+    <title>Store Report - Kompletter Report</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -70,7 +70,7 @@
       }
 
       .hero h1 {
-        font-size: 3rem;
+        font-size: 2.5rem;
         font-weight: 700;
         margin-bottom: 1.5rem;
         color: var(--secondary);
@@ -83,23 +83,24 @@
         margin: 0 auto 2rem;
       }
 
-      .cta-btn {
-        background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+      .success-message {
+        background: linear-gradient(45deg, var(--success), #059669);
         color: white;
-        padding: 1.25rem 2.5rem;
-        border: none;
-        border-radius: 0.75rem;
-        font-size: 1.2rem;
-        cursor: pointer;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(0, 163, 180, 0.3);
-        margin-top: 1rem;
+        padding: 2rem;
+        border-radius: 1rem;
+        margin-bottom: 3rem;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
       }
 
-      .cta-btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 8px 25px rgba(0, 163, 180, 0.4);
+      .success-message h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+      }
+
+      .success-message p {
+        font-size: 1.1rem;
+        opacity: 0.9;
       }
 
       .section {
@@ -116,183 +117,6 @@
         font-weight: 700;
         color: var(--secondary);
         margin-bottom: 3rem;
-      }
-
-      .report-content {
-        background: white;
-        border-radius: 1rem;
-        padding: 3rem;
-        margin: 2rem auto;
-        max-width: 800px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-      }
-
-      .report-content h3 {
-        color: var(--secondary);
-        margin-bottom: 1.5rem;
-        font-size: 1.5rem;
-      }
-
-      .report-list {
-        list-style: none;
-        padding: 0;
-      }
-
-      .report-list li {
-        padding: 0.75rem 0;
-        border-bottom: 1px solid var(--border);
-        display: flex;
-        align-items: center;
-      }
-
-      .report-list li:last-child {
-        border-bottom: none;
-      }
-
-      .report-list li::before {
-        content: "✅";
-        margin-right: 1rem;
-        font-size: 1.2rem;
-      }
-
-      .example-report {
-        background: white;
-        border-radius: 1rem;
-        padding: 3rem;
-        margin: 2rem auto;
-        max-width: 800px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-        text-align: center;
-      }
-
-      .example-report h3 {
-        color: var(--secondary);
-        margin-bottom: 1.5rem;
-        font-size: 1.5rem;
-      }
-
-      .example-report p {
-        color: #64748b;
-        margin-bottom: 2rem;
-      }
-
-      .preview-btn {
-        background: var(--primary);
-        color: white;
-        padding: 1rem 2rem;
-        border: none;
-        border-radius: 0.5rem;
-        font-size: 1.1rem;
-        cursor: pointer;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        text-decoration: none;
-        display: inline-block;
-      }
-
-      .preview-btn:hover {
-        background: var(--primary-dark);
-        transform: translateY(-2px);
-      }
-
-      .benefits {
-        background: white;
-        padding: 4rem 0;
-      }
-
-      .benefits-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        margin-top: 3rem;
-      }
-
-      .benefit-card {
-        padding: 2rem;
-        border-radius: 0.5rem;
-        background: var(--background);
-        text-align: center;
-        border: 2px solid transparent;
-        transition: all 0.3s ease;
-      }
-
-      .benefit-card:hover {
-        border-color: var(--primary);
-        transform: translateY(-5px);
-      }
-
-      .benefit-card h3 {
-        color: var(--secondary);
-        margin-bottom: 1rem;
-        font-size: 1.3rem;
-      }
-
-      .benefit-card p {
-        color: #64748b;
-      }
-
-      .create-report {
-        background: var(--background);
-        padding: 4rem 0;
-      }
-
-      .steps-container {
-        max-width: 800px;
-        margin: 0 auto;
-      }
-
-      .step {
-        background: white;
-        border-radius: 1rem;
-        padding: 2rem;
-        margin-bottom: 2rem;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-        border-left: 4px solid var(--primary);
-      }
-
-      .step h3 {
-        color: var(--secondary);
-        margin-bottom: 1rem;
-        display: flex;
-        align-items: center;
-      }
-
-      .step-number {
-        background: var(--primary);
-        color: white;
-        width: 2rem;
-        height: 2rem;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 600;
-        margin-right: 1rem;
-        font-size: 0.9rem;
-      }
-
-      .step p {
-        color: #64748b;
-        margin-bottom: 1rem;
-      }
-
-      .step ul {
-        list-style: none;
-        padding-left: 0;
-      }
-
-      .step ul li {
-        padding: 0.5rem 0;
-        padding-left: 1.5rem;
-        position: relative;
-      }
-
-      .step ul li::before {
-        content: "→";
-        position: absolute;
-        left: 0;
-        color: var(--primary);
-        font-weight: bold;
       }
 
       .upload-section {
@@ -437,46 +261,28 @@
       .generate-btn {
         background: linear-gradient(45deg, var(--success), #059669);
         color: white;
-        padding: 1rem 2rem;
+        padding: 1.25rem 2.5rem;
         border: none;
-        border-radius: 0.5rem;
-        font-size: 1.1rem;
+        border-radius: 0.75rem;
+        font-size: 1.2rem;
         cursor: pointer;
         width: 100%;
         font-weight: 600;
         transition: all 0.3s ease;
         margin-bottom: 1rem;
+        box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
       }
 
       .generate-btn:hover:not(:disabled) {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
       }
 
       .generate-btn:disabled {
         background: #9ca3af;
         cursor: not-allowed;
         transform: none;
-      }
-
-      .generate-btn.paid {
-        background: linear-gradient(45deg, var(--primary), var(--primary-dark));
-        box-shadow: 0 4px 15px rgba(0, 163, 180, 0.3);
-      }
-
-      .generate-btn.paid:hover:not(:disabled) {
-        box-shadow: 0 8px 25px rgba(0, 163, 180, 0.4);
-      }
-
-      .button-container {
-        display: flex;
-        gap: 1rem;
-        flex-wrap: wrap;
-      }
-
-      .button-container .generate-btn {
-        flex: 1;
-        min-width: 250px;
+        box-shadow: none;
       }
 
       .status {
@@ -505,10 +311,48 @@
         color: #1e40af;
       }
 
+      .instructions {
+        background: white;
+        border-radius: 1rem;
+        padding: 2rem;
+        margin: 2rem auto;
+        max-width: 800px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      }
+
+      .instructions h3 {
+        color: var(--secondary);
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+      }
+
+      .instructions ul {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .instructions ul li {
+        padding: 0.75rem 0;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+      }
+
+      .instructions ul li:last-child {
+        border-bottom: none;
+      }
+
+      .instructions ul li::before {
+        content: "📋";
+        margin-right: 1rem;
+        font-size: 1.2rem;
+      }
+
       footer {
         background: var(--secondary);
         color: white;
         padding: 3rem 0;
+        margin-top: 4rem;
       }
 
       .footer-content {
@@ -537,8 +381,7 @@
         }
 
         .upload-section,
-        .report-content,
-        .example-report {
+        .instructions {
           padding: 2rem;
           margin: 1rem;
         }
@@ -551,18 +394,6 @@
         .random-name-btn {
           margin-left: 0;
           margin-top: 1rem;
-        }
-
-        .benefits-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .button-container {
-          flex-direction: column;
-        }
-
-        .button-container .generate-btn {
-          min-width: auto;
         }
 
         .footer-content {
@@ -585,127 +416,18 @@
     </header>
 
     <main>
-      <section class="hero">
-        <div class="container">
-          <h1>Sofortigen Report für deinen Shopify Store</h1>
-          <p>
-            Lade deine Shopify-CSV-Dateien hoch und erhalte sofort einen
-            übersichtlichen Report mit allen wichtigen Kennzahlen – ohne
-            Anmeldung, ohne Abo.
-          </p>
-          <button class="cta-btn" onclick="scrollToReport()">
-            🚀 Jetzt Report generieren
-          </button>
-        </div>
-      </section>
-
       <section class="section">
         <div class="container">
-          <h2 class="section-title">Was ist im Report enthalten?</h2>
-          <div class="report-content">
-            <h3>📊 Alle wichtigen Kennzahlen auf einen Blick:</h3>
-            <ul class="report-list">
-              <li>Gesamtumsatz und Anzahl der Bestellungen</li>
-              <li>Durchschnittlicher Umsatz pro Bestellung</li>
-              <li>
-                Anzahl der bestellten Produkte und Produkte pro Bestellung
-              </li>
-              <li>Anzahl der Kunden und Kunden mit mehreren Bestellungen</li>
-              <li>Top 3 Kunden nach Umsatz</li>
-              <li>Top 3 Produkte nach Umsatz und Bestellmenge</li>
-              <li>Sortierung der Wochentage nach Umsatz</li>
-              <li>Monatliche Umsatzdarstellung</li>
-              <li>Top 3 Länder nach Umsatz und Bestellungen</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="section white">
-        <div class="container">
-          <div class="example-report">
-            <h3>📄 Beispiel-Report ansehen</h3>
+          <div class="success-message">
+            <h2>🎉 Vielen Dank für Ihren Kauf!</h2>
             <p>
-              Schauen Sie sich an, wie Ihr Report aussehen wird. Klicken Sie auf
-              den Button, um ein Beispiel zu öffnen.
+              Sie haben erfolgreich den kompletten Store Report erworben. Laden
+              Sie jetzt Ihre CSV-Dateien hoch, um Ihren vollständigen Report zu
+              generieren.
             </p>
-            <a href="sampleReport.pdf" target="_blank" class="preview-btn"
-              >🔍 Beispiel-Report öffnen</a
-            >
           </div>
         </div>
-      </section>
-
-      <section class="benefits">
         <div class="container">
-          <h2 class="section-title">Warum Store Report?</h2>
-          <div class="benefits-grid">
-            <div class="benefit-card">
-              <h3>🛡️ Kein Risiko</h3>
-              <p>Einmalzahlung, keine Datenweitergabe.</p>
-            </div>
-            <div class="benefit-card">
-              <h3>⚡ Schnelle Ergebnisse</h3>
-              <p>PDF-Report direkt zum Download innerhalb weniger Sekunden.</p>
-            </div>
-            <div class="benefit-card">
-              <h3>📈 Wertvolle Einblicke</h3>
-              <p>Wichtige Kennzahlen übersichtlich dargestellt.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="create-report">
-        <div class="container">
-          <h2 class="section-title">Report generieren</h2>
-          <div class="steps-container">
-            <div class="step">
-              <h3><span class="step-number">1</span>CSV-Dateien aus Shopify exportieren</h3>
-              <p>Laden Sie Ihre Shopify-Daten als CSV-Dateien herunter:</p>
-              <ul>
-                <li>
-                  Gehen Sie in Ihrem Shopify Admin (admin.shopify.com) zu
-                  <strong>Bestellungen</strong> → <strong>Exportieren</strong> →
-                  <strong>"Alle Bestellungen"</strong> & <strong>"Reine CSV-Datei"</strong> auswählen</strong>
-                  →
-                  <strong>Bestellungen exportieren</strong>
-                </li>
-                <li>
-                  Gehen Sie in Ihrem Shopify Admin (admin.shopify.com) zu
-                  <strong>Kunden</strong> → <strong>Exportieren</strong> →
-                  <strong>"Alle Kunden"</strong> & <strong>"Reine CSV-Datei"</strong> auswählen</strong>
-                  →
-                  <strong>Kunden exportieren</strong>
-                </li>
-                <li>Warten Sie auf die 2 E-Mails mit den Download-Links</li>
-                <li>Laden Sie beide CSV-Dateien herunter</li>
-              </ul>
-            </div>
-
-            <div class="step">
-              <h3><span class="step-number">2</span>Dateien hochladen</h3>
-              <p>
-                Laden Sie die beiden CSV-Dateien hoch (siehe Formular weiter unten). <br />
-                Bestellungen: <strong>orders_export.csv</strong> <br />
-                Kunden: <strong>customers_export.csv</strong>
-              </p>
-            </div>
-
-            <div class="step">
-              <h3><span class="step-number">3</span>Report generieren</h3>
-              <ul>
-                <li>
-                  <strong>kostenlose Report-Vorschau generieren</strong>
-                </li>
-                ODER
-                <li>
-                  <strong>Kompletten Report kaufen (9,99€) (nach Bezahlung CSV Dateien hochladen und kompletten Report herunterladen)</strong>
-                </li>
-              </ul>
-            </div>
-          </div>
-
           <div class="upload-section">
             <div class="store-name-input">
               <label for="storeName">Store Name:</label>
@@ -715,7 +437,6 @@
             <div class="upload-zone" id="uploadZone">
               <p>📊 CSV-Dateien hierher ziehen oder klicken zum Auswählen</p>
               <div class="file-inputs">
-                
                 <label for="ordersFile" class="file-label">
                   📦 Bestellungen-CSV auswählen
                 </label>
@@ -727,7 +448,7 @@
                 />
 
                 <label for="customersFile" class="file-label">
-                  📋 Kunden-CSV auswählen
+                  👥 Kunden-CSV auswählen
                 </label>
                 <input
                   type="file"
@@ -743,27 +464,14 @@
               <div id="filesList"></div>
             </div>
 
-            <div class="button-container">
-              
-              <button
-                class="generate-btn"
-                id="generateFreeBtn"
-                onclick="generateFreeReport()"
-                disabled
-              >
-                🚀 kostenlose Report-Vorschau generieren
-              </button>
-
-            <a href="paid-report.html" >
-              <button
-                class="generate-btn paid"
-                style="height: 100%;"
-                id="generatePaidBtn"
-              >
-                💳 Kompletten Report kaufen (9,99€)
-              </button>
-            </div>
-            </a>
+            <button
+              class="generate-btn"
+              id="generateFullBtn"
+              onclick="generateFullReport()"
+              disabled
+            >
+              🚀 Kompletten Report generieren
+            </button>
 
             <div id="status"></div>
           </div>
@@ -789,11 +497,6 @@
         customers: null,
         orders: null,
       };
-
-      function scrollToReport() {
-        const reportSection = document.querySelector('.create-report');
-        reportSection.scrollIntoView({ behavior: 'smooth' });
-      }
 
       // Drag and Drop Funktionalität
       const uploadZone = document.getElementById("uploadZone");
@@ -845,7 +548,7 @@
       function updateFileDisplay() {
         const filesList = document.getElementById("filesList");
         const selectedFilesDiv = document.getElementById("selectedFiles");
-        const generateFreeBtn = document.getElementById("generateFreeBtn");
+        const generateFullBtn = document.getElementById("generateFullBtn");
 
         filesList.innerHTML = "";
 
@@ -853,7 +556,7 @@
           filesList.innerHTML += `
             <div class="file-item">
               <span>📦 Bestellungen: ${selectedFiles.orders.name}</span>
-              <button onclick="removeFile('orders')">❌</button>
+              <button onclick="removeFile('orders')" style="background: var(--error);">❌</button>
             </div>
           `;
         }
@@ -861,17 +564,18 @@
         if (selectedFiles.customers) {
           filesList.innerHTML += `
             <div class="file-item">
-              <span>📋 Kunden: ${selectedFiles.customers.name}</span>
-              <button onclick="removeFile('customers')">❌</button>
+              <span>👥 Kunden: ${selectedFiles.customers.name}</span>
+              <button onclick="removeFile('customers')" style="background: var(--error);">❌</button>
             </div>
           `;
         }
 
         selectedFilesDiv.style.display =
           selectedFiles.customers || selectedFiles.orders ? "block" : "none";
-        
-        const bothFilesSelected = selectedFiles.customers && selectedFiles.orders;
-        generateFreeBtn.disabled = !bothFilesSelected;
+
+        const bothFilesSelected =
+          selectedFiles.customers && selectedFiles.orders;
+        generateFullBtn.disabled = !bothFilesSelected;
       }
 
       function removeFile(type) {
@@ -884,7 +588,7 @@
         updateFileDisplay();
       }
 
-      async function generateFreeReport() {
+      async function generateFullReport() {
         const storeName = document.getElementById("storeName").value.trim();
         if (!storeName) {
           showStatus("Bitte geben Sie einen Shop-Namen ein!", "error");
@@ -896,9 +600,9 @@
           return;
         }
 
-        showStatus("🔄 Kostenlose Report-Vorschau wird generiert...", "loading");
-        const generateFreeBtn = document.getElementById("generateFreeBtn");
-        generateFreeBtn.disabled = true;
+        showStatus("🔄 Kompletter Report wird generiert...", "loading");
+        const generateFullBtn = document.getElementById("generateFullBtn");
+        generateFullBtn.disabled = true;
 
         try {
           const formData = new FormData();
@@ -907,7 +611,7 @@
           formData.append("store_name", storeName);
 
           const response = await fetch(
-            "http://localhost:5001/generate-report-demo",
+            "http://localhost:5001/generate-report-full",
             {
               method: "POST",
               body: formData,
@@ -920,7 +624,7 @@
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement("a");
             a.href = url;
-            a.download = `shop_report_preview_${new Date()
+            a.download = `shop_report_complete_${new Date()
               .toISOString()
               .slice(0, 19)
               .replace(/:/g, "-")}.pdf`;
@@ -929,7 +633,10 @@
             window.URL.revokeObjectURL(url);
             document.body.removeChild(a);
 
-            showStatus("✅ Kostenlose Report-Vorschau erfolgreich generiert!", "success");
+            showStatus(
+              "✅ Kompletter Report erfolgreich generiert und heruntergeladen!",
+              "success"
+            );
           } else {
             const errorData = await response.json();
             showStatus(`❌ Fehler: ${errorData.error}`, "error");
@@ -937,7 +644,7 @@
         } catch (error) {
           showStatus(`❌ Netzwerkfehler: ${error.message}`, "error");
         } finally {
-          generateFreeBtn.disabled = false;
+          generateFullBtn.disabled = false;
         }
       }
 
@@ -949,7 +656,7 @@
         if (type === "success") {
           setTimeout(() => {
             statusDiv.style.display = "none";
-          }, 5000);
+          }, 8000);
         }
       }
     </script>
