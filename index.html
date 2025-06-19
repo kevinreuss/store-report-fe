@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Store Report</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #00a3b4;
+        --primary-dark: #008c9a;
+        --secondary: #2c3e50;
+        --background: #f8fafc;
+        --text: #1e293b;
+        --border: #e2e8f0;
+        --success: #10b981;
+        --error: #ef4444;
+        --warning: #f59e0b;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        line-height: 1.6;
+        color: var(--text);
+        background-color: var(--background);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      header {
+        background: white;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        padding: 1rem 0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 100;
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary);
+      }
+
+      .hero {
+        padding: 8rem 0 4rem;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: var(--secondary);
+      }
+
+      .hero p {
+        font-size: 1.25rem;
+        color: #64748b;
+        max-width: 600px;
+        margin: 0 auto 2rem;
+      }
+
+      .cta-btn {
+        background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+        color: white;
+        padding: 1.25rem 2.5rem;
+        border: none;
+        border-radius: 0.75rem;
+        font-size: 1.2rem;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 163, 180, 0.3);
+        margin-top: 1rem;
+      }
+
+      .cta-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0, 163, 180, 0.4);
+      }
+
+      .section {
+        padding: 4rem 0;
+      }
+
+      .section.white {
+        background: white;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--secondary);
+        margin-bottom: 3rem;
+      }
+
+      .report-content {
+        background: white;
+        border-radius: 1rem;
+        padding: 3rem;
+        margin: 2rem auto;
+        max-width: 800px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      }
+
+      .report-content h3 {
+        color: var(--secondary);
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+      }
+
+      .report-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .report-list li {
+        padding: 0.75rem 0;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+      }
+
+      .report-list li:last-child {
+        border-bottom: none;
+      }
+
+      .report-list li::before {
+        content: "✅";
+        margin-right: 1rem;
+        font-size: 1.2rem;
+      }
+
+      .example-report {
+        background: white;
+        border-radius: 1rem;
+        padding: 3rem;
+        margin: 2rem auto;
+        max-width: 800px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        text-align: center;
+      }
+
+      .example-report h3 {
+        color: var(--secondary);
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+      }
+
+      .example-report p {
+        color: #64748b;
+        margin-bottom: 2rem;
+      }
+
+      .preview-btn {
+        background: var(--primary);
+        color: white;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 0.5rem;
+        font-size: 1.1rem;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .preview-btn:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+      }
+
+      .benefits {
+        background: white;
+        padding: 4rem 0;
+      }
+
+      .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .benefit-card {
+        padding: 2rem;
+        border-radius: 0.5rem;
+        background: var(--background);
+        text-align: center;
+        border: 2px solid transparent;
+        transition: all 0.3s ease;
+      }
+
+      .benefit-card:hover {
+        border-color: var(--primary);
+        transform: translateY(-5px);
+      }
+
+      .benefit-card h3 {
+        color: var(--secondary);
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+      }
+
+      .benefit-card p {
+        color: #64748b;
+      }
+
+      .create-report {
+        background: var(--background);
+        padding: 4rem 0;
+      }
+
+      .steps-container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .step {
+        background: white;
+        border-radius: 1rem;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        border-left: 4px solid var(--primary);
+      }
+
+      .step h3 {
+        color: var(--secondary);
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+      }
+
+      .step-number {
+        background: var(--primary);
+        color: white;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        margin-right: 1rem;
+        font-size: 0.9rem;
+      }
+
+      .step p {
+        color: #64748b;
+        margin-bottom: 1rem;
+      }
+
+      .step ul {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .step ul li {
+        padding: 0.5rem 0;
+        padding-left: 1.5rem;
+        position: relative;
+      }
+
+      .step ul li::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: var(--primary);
+        font-weight: bold;
+      }
+
+      .upload-section {
+        background: white;
+        border-radius: 1rem;
+        padding: 3rem;
+        margin: 2rem auto;
+        max-width: 800px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      }
+
+      .store-name-input {
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+
+      .store-name-input label {
+        display: block;
+        font-weight: 600;
+        color: var(--secondary);
+        margin-bottom: 0.5rem;
+      }
+
+      .store-name-input input {
+        width: 100%;
+        max-width: 400px;
+        padding: 0.75rem 1rem;
+        border: 2px solid var(--border);
+        border-radius: 0.5rem;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+      }
+
+      .store-name-input input:focus {
+        outline: none;
+        border-color: var(--primary);
+      }
+
+      .random-name-btn {
+        background: var(--primary);
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        margin-left: 1rem;
+        cursor: pointer;
+        font-weight: 500;
+        transition: background-color 0.3s ease;
+      }
+
+      .random-name-btn:hover {
+        background: var(--primary-dark);
+      }
+
+      .upload-zone {
+        border: 2px dashed var(--primary);
+        border-radius: 1rem;
+        padding: 3rem;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background: #f0fdff;
+        margin-bottom: 2rem;
+      }
+
+      .upload-zone:hover {
+        border-color: var(--primary-dark);
+        background: #e0f7fa;
+      }
+
+      .upload-zone.dragover {
+        border-color: var(--success);
+        background: #f0fdf4;
+        transform: scale(1.02);
+      }
+
+      .upload-zone p {
+        color: var(--primary);
+        font-weight: 500;
+        margin-bottom: 1rem;
+      }
+
+      .file-inputs {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .file-input {
+        display: none;
+      }
+
+      .file-label {
+        background: var(--primary);
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        display: inline-block;
+        font-weight: 500;
+        transition: background-color 0.3s ease;
+      }
+
+      .file-label:hover {
+        background: var(--primary-dark);
+      }
+
+      .selected-files {
+        background: var(--background);
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        margin-top: 2rem;
+        display: none;
+      }
+
+      .selected-files h3 {
+        color: var(--secondary);
+        margin-bottom: 1rem;
+      }
+
+      .file-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem;
+        margin: 0.5rem 0;
+        background: white;
+        border-radius: 0.5rem;
+        border: 1px solid var(--border);
+      }
+
+      .file-item button {
+        color: white;
+        border: none;
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.25rem;
+        cursor: pointer;
+        font-size: 0.875rem;
+      }
+
+      .generate-btn {
+        background: linear-gradient(45deg, var(--success), #059669);
+        color: white;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 0.5rem;
+        font-size: 1.1rem;
+        cursor: pointer;
+        width: 100%;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .generate-btn:hover:not(:disabled) {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+      }
+
+      .generate-btn:disabled {
+        background: #9ca3af;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      .status {
+        margin-top: 1.5rem;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        text-align: center;
+        font-weight: 500;
+      }
+
+      .status.success {
+        background: #f0fdf4;
+        border: 1px solid var(--success);
+        color: #065f46;
+      }
+
+      .status.error {
+        background: #fef2f2;
+        border: 1px solid var(--error);
+        color: #991b1b;
+      }
+
+      .status.loading {
+        background: #eff6ff;
+        border: 1px solid #3b82f6;
+        color: #1e40af;
+      }
+
+      footer {
+        background: var(--secondary);
+        color: white;
+        padding: 3rem 0;
+      }
+
+      .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .footer-links a {
+        color: white;
+        text-decoration: none;
+        margin-left: 2rem;
+      }
+
+      .footer-links a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .upload-section,
+        .report-content,
+        .example-report {
+          padding: 2rem;
+          margin: 1rem;
+        }
+
+        .file-inputs {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .random-name-btn {
+          margin-left: 0;
+          margin-top: 1rem;
+        }
+
+        .benefits-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-content {
+          flex-direction: column;
+          text-align: center;
+          gap: 1rem;
+        }
+
+        .footer-links a {
+          margin: 0 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container header-content">
+        <div class="logo">Store Report</div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <h1>Report für deinen Shopify Store in 30s</h1>
+          <p>
+            Lade deine Shopify-CSV-Dateien hoch und erhalte sofort einen
+            übersichtlichen Report mit allen wichtigen Kennzahlen – ohne
+            Anmeldung, ohne Abo.
+          </p>
+          <button class="cta-btn" onclick="scrollToReport()">
+            🚀 Jetzt Report generieren
+          </button>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">Was ist im Report enthalten?</h2>
+          <div class="report-content">
+            <h3>📊 Alle wichtigen Kennzahlen auf einen Blick:</h3>
+            <ul class="report-list">
+              <li>Gesamtumsatz und Anzahl der Bestellungen</li>
+              <li>Durchschnittlicher Umsatz pro Bestellung</li>
+              <li>
+                Anzahl der bestellten Produkte und Produkte pro Bestellung
+              </li>
+              <li>Anzahl der Kunden und Kunden mit mehreren Bestellungen</li>
+              <li>Top 3 Kunden nach Umsatz</li>
+              <li>Top 3 Produkte nach Umsatz und Bestellmenge</li>
+              <li>Sortierung der Wochentage nach Umsatz</li>
+              <li>Monatliche Umsatzdarstellung</li>
+              <li>Top 3 Länder nach Umsatz und Bestellungen</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section white">
+        <div class="container">
+          <div class="example-report">
+            <h3>📄 Beispiel-Report ansehen</h3>
+            <p>
+              Schauen Sie sich an, wie Ihr Report aussehen wird. Klicken Sie auf
+              den Button, um ein Beispiel zu öffnen.
+            </p>
+            <a href="sampleReport.pdf" target="_blank" class="preview-btn"
+              >🔍 Beispiel-Report öffnen</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="benefits">
+        <div class="container">
+          <h2 class="section-title">Warum Store Report?</h2>
+          <div class="benefits-grid">
+            <div class="benefit-card">
+              <h3>🛡️ Kein Risiko</h3>
+              <p>Einmalzahlung, keine Datenweitergabe.</p>
+            </div>
+            <div class="benefit-card">
+              <h3>⚡ Schnelle Ergebnisse</h3>
+              <p>PDF-Report direkt zum Download innerhalb weniger Sekunden.</p>
+            </div>
+            <div class="benefit-card">
+              <h3>📈 Wertvolle Einblicke</h3>
+              <p>Wichtige Kennzahlen übersichtlich dargestellt.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="create-report">
+        <div class="container">
+          <h2 class="section-title">Report generieren</h2>
+          <div class="steps-container">
+            <div class="step">
+              <h3><span class="step-number">1</span>CSV-Dateien aus Shopify exportieren</h3>
+              <p>Laden Sie Ihre Shopify-Daten als CSV-Dateien herunter:</p>
+              <ul>
+                <li>
+                  Gehen Sie in Ihrem Shopify Admin (admin.shopify.com) zu
+                  <strong>Bestellungen</strong> → <strong>Exportieren</strong> →
+                  <strong>"Alle Bestellungen"</strong> & <strong>"Reine CSV-Datei"</strong> auswählen</strong>
+                  →
+                  <strong>Bestellungen exportieren</strong>
+                </li>
+                <li>
+                  Gehen Sie in Ihrem Shopify Admin (admin.shopify.com) zu
+                  <strong>Kunden</strong> → <strong>Exportieren</strong> →
+                  <strong>"Alle Kunden"</strong> & <strong>"Reine CSV-Datei"</strong> auswählen</strong>
+                  →
+                  <strong>Kunden exportieren</strong>
+                </li>
+                <li>Warten Sie auf die 2 E-Mails mit den Download-Links</li>
+                <li>Laden Sie beide CSV-Dateien herunter</li>
+              </ul>
+            </div>
+
+            <div class="step">
+              <h3><span class="step-number">2</span>Dateien hochladen</h3>
+              <p>
+                Laden Sie die beiden CSV-Dateien hoch (siehe Formular weiter unten). <br />
+                Bestellungen: <strong>orders_export.csv</strong> <br />
+                Kunden: <strong>customers_export.csv</strong>
+              </p>
+            </div>
+
+            <div class="step">
+              <h3><span class="step-number">3</span>Report generieren</h3>
+              <p>
+                Klicken Sie auf "PDF-Report generieren" und erhalten Sie sofort
+                Ihren Report zum Download.
+              </p>
+            </div>
+          </div>
+
+          <div class="upload-section">
+            <div class="store-name-input">
+              <label for="storeName">Store Name:</label>
+              <input type="text" id="storeName" value="Mein Shopify Store" />
+            </div>
+
+            <div class="upload-zone" id="uploadZone">
+              <p>📊 CSV-Dateien hierher ziehen oder klicken zum Auswählen</p>
+              <div class="file-inputs">
+                
+                <label for="ordersFile" class="file-label">
+                  📦 Bestellungen-CSV auswählen
+                </label>
+                <input
+                  type="file"
+                  id="ordersFile"
+                  class="file-input"
+                  accept=".csv"
+                />
+
+                <label for="customersFile" class="file-label">
+                  📋 Kunden-CSV auswählen
+                </label>
+                <input
+                  type="file"
+                  id="customersFile"
+                  class="file-input"
+                  accept=".csv"
+                />
+              </div>
+            </div>
+
+            <div class="selected-files" id="selectedFiles">
+              <h3>Ausgewählte Dateien:</h3>
+              <div id="filesList"></div>
+            </div>
+
+            <button
+              class="generate-btn"
+              id="generateBtn"
+              onclick="generateReport()"
+              disabled
+            >
+              🚀 PDF-Report generieren
+            </button>
+
+            <div id="status"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-content">
+        <div class="copyright">
+          © 2025 Store Report. Alle Rechte vorbehalten.
+        </div>
+        <div class="footer-links">
+          <a href="/impressum">Impressum</a>
+          <a href="/datenschutz">Datenschutz</a>
+          <a href="/agb">AGB</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      let selectedFiles = {
+        customers: null,
+        orders: null,
+      };
+
+      function scrollToReport() {
+        const reportSection = document.querySelector('.create-report');
+        reportSection.scrollIntoView({ behavior: 'smooth' });
+      }
+
+      // Drag and Drop Funktionalität
+      const uploadZone = document.getElementById("uploadZone");
+      const customersFileInput = document.getElementById("customersFile");
+      const ordersFileInput = document.getElementById("ordersFile");
+
+      uploadZone.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        uploadZone.classList.add("dragover");
+      });
+
+      uploadZone.addEventListener("dragleave", () => {
+        uploadZone.classList.remove("dragover");
+      });
+
+      uploadZone.addEventListener("drop", (e) => {
+        e.preventDefault();
+        uploadZone.classList.remove("dragover");
+
+        const files = Array.from(e.dataTransfer.files);
+        handleFiles(files);
+      });
+
+      customersFileInput.addEventListener("change", (e) => {
+        if (e.target.files.length > 0) {
+          selectedFiles.customers = e.target.files[0];
+          updateFileDisplay();
+        }
+      });
+
+      ordersFileInput.addEventListener("change", (e) => {
+        if (e.target.files.length > 0) {
+          selectedFiles.orders = e.target.files[0];
+          updateFileDisplay();
+        }
+      });
+
+      function handleFiles(files) {
+        files.forEach((file) => {
+          if (file.name.toLowerCase().includes("customer")) {
+            selectedFiles.customers = file;
+          } else if (file.name.toLowerCase().includes("order")) {
+            selectedFiles.orders = file;
+          }
+        });
+        updateFileDisplay();
+      }
+
+      function updateFileDisplay() {
+        const filesList = document.getElementById("filesList");
+        const selectedFilesDiv = document.getElementById("selectedFiles");
+        const generateBtn = document.getElementById("generateBtn");
+
+        filesList.innerHTML = "";
+
+        if (selectedFiles.orders) {
+          filesList.innerHTML += `
+            <div class="file-item">
+              <span>📦 Bestellungen: ${selectedFiles.orders.name}</span>
+              <button onclick="removeFile('orders')">❌</button>
+            </div>
+          `;
+        }
+
+        if (selectedFiles.customers) {
+          filesList.innerHTML += `
+            <div class="file-item">
+              <span>📋 Kunden: ${selectedFiles.customers.name}</span>
+              <button onclick="removeFile('customers')">❌</button>
+            </div>
+          `;
+        }
+
+        selectedFilesDiv.style.display =
+          selectedFiles.customers || selectedFiles.orders ? "block" : "none";
+        generateBtn.disabled = !(
+          selectedFiles.customers && selectedFiles.orders
+        );
+      }
+
+      function removeFile(type) {
+        selectedFiles[type] = null;
+        if (type === "customers") {
+          customersFileInput.value = "";
+        } else {
+          ordersFileInput.value = "";
+        }
+        updateFileDisplay();
+      }
+
+      async function generateReport() {
+        const storeName = document.getElementById("storeName").value.trim();
+        if (!storeName) {
+          showStatus("Bitte geben Sie einen Shop-Namen ein!", "error");
+          return;
+        }
+
+        if (!selectedFiles.customers || !selectedFiles.orders) {
+          showStatus("Bitte wählen Sie beide CSV-Dateien aus!", "error");
+          return;
+        }
+
+        showStatus("🔄 PDF-Report wird generiert...", "loading");
+        const generateBtn = document.getElementById("generateBtn");
+        generateBtn.disabled = true;
+
+        try {
+          const formData = new FormData();
+          formData.append("customers", selectedFiles.customers);
+          formData.append("orders", selectedFiles.orders);
+          formData.append("store_name", storeName);
+
+          const response = await fetch(
+            "http://localhost:5001/generate-report",
+            {
+              method: "POST",
+              body: formData,
+            }
+          );
+
+          if (response.ok) {
+            // PDF herunterladen
+            const blob = await response.blob();
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = `shop_report_${new Date()
+              .toISOString()
+              .slice(0, 19)
+              .replace(/:/g, "-")}.pdf`;
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+
+            showStatus("✅ PDF-Report erfolgreich generiert!", "success");
+          } else {
+            const errorData = await response.json();
+            showStatus(`❌ Fehler: ${errorData.error}`, "error");
+          }
+        } catch (error) {
+          showStatus(`❌ Netzwerkfehler: ${error.message}`, "error");
+        } finally {
+          generateBtn.disabled = false;
+        }
+      }
+
+      function showStatus(message, type) {
+        const statusDiv = document.getElementById("status");
+        statusDiv.textContent = message;
+        statusDiv.className = `status ${type}`;
+
+        if (type === "success") {
+          setTimeout(() => {
+            statusDiv.style.display = "none";
+          }, 5000);
+        }
+      }
+    </script>
+  </body>
+</html>
