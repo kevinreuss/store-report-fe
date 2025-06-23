@@ -121,6 +121,16 @@
         margin-bottom: 1rem;
       }
 
+      .hero-text .cta-btn {
+        display: block;
+        width: 100%;
+        margin: 0.5rem 0;
+      }
+
+      .hero-text .cta-btn.secondary {
+        margin-left: 0;
+      }
+
       .cta-btn {
         background: linear-gradient(45deg, var(--primary), var(--primary-dark));
         color: white;
@@ -138,6 +148,15 @@
       .cta-btn:hover {
         transform: translateY(-3px);
         box-shadow: 0 8px 25px rgba(0, 163, 180, 0.4);
+      }
+
+      .cta-btn.secondary {
+        background: rgba(255,255,255,0.2);
+        border: 2px solid white;
+      }
+
+      .cta-btn.secondary:hover {
+        background: rgba(255,255,255,0.4);
       }
 
       .section {
@@ -652,6 +671,9 @@
               <button class="cta-btn" onclick="scrollToReport()">
                 🚀 Jetzt eigenen Report erstellen (kostenlos)
               </button>
+              <button class="cta-btn secondary" onclick="scrollToExample()" style="margin-left: 1rem; background: rgba(255,255,255,0.2); border: 2px solid white;">
+                📄 Beispiel ansehen
+              </button>
             </div>
             <div class="hero-image">
               <img src="report-preview.png" alt="Store Report Preview">
@@ -685,7 +707,7 @@
       <section class="section white">
         <div class="container">
           <h2 class="section-title">Beispiel-Report (Live-Vorschau)</h2>
-          <div class="example-report">
+          <div class="example-report" id="exampleReport">
             <iframe 
               src="sampleReport.pdf#toolbar=0" 
               width="100%" 
@@ -768,7 +790,7 @@
                 </li>
                 ODER
                 <li>
-                  <strong>Kompletten Report kaufen (Early Bird 4,99 €) (nach Bezahlung CSV Dateien hochladen und kompletten Report herunterladen)</strong>
+                  <strong>Kompletten Report kaufen (Early Bird 4,99 €) (nach Bezahlung CSV Dateien hochladen und kompletten Report herunterladen)</strong>
                 </li>
               </ul>
             </div>
@@ -819,7 +841,7 @@
                 onclick="generateFreeReport()"
                 disabled
               >
-                🚀 kostenlose Report-Vorschau generieren
+                 kostenlose Report-Vorschau generieren
               </button>
 
             <a href="https://buy.stripe.com/00waEYcjR6wg9GvbNEcV203" >
@@ -828,7 +850,7 @@
                 style="height: 100%;"
                 id="generatePaidBtn"
               >
-                💳 Kompletten Report kaufen (Early Bird 4,99 €)
+                💳 Kompletten Report kaufen (Early Bird 4,99 €)
               </button>
             </div>
             </a>
@@ -861,6 +883,11 @@
       function scrollToReport() {
         const reportSection = document.querySelector('.create-report');
         reportSection.scrollIntoView({ behavior: 'smooth' });
+      }
+
+      function scrollToExample() {
+        const exampleSection = document.getElementById('exampleReport');
+        exampleSection.scrollIntoView({ behavior: 'smooth' });
       }
 
       // Drag and Drop Funktionalität
