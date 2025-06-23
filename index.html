@@ -71,6 +71,31 @@
         text-align: center;
       }
 
+      .hero-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .hero-text {
+        text-align: left;
+      }
+
+      .hero-image {
+        text-align: center;
+      }
+
+      .hero-image img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 1rem;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+        border: 3px solid white;
+      }
+
       .hero h1 {
         font-size: 3rem;
         font-weight: 700;
@@ -83,6 +108,17 @@
         color: #64748b;
         max-width: 600px;
         margin: 0 auto 2rem;
+      }
+
+      .hero-text h1 {
+        color: white;
+        text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-text p {
+        color: #f0fdf4;
+        margin-bottom: 1rem;
       }
 
       .cta-btn {
@@ -534,6 +570,20 @@
           font-size: 2rem;
         }
 
+        .hero-content {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+          text-align: center;
+        }
+
+        .hero-text {
+          text-align: center;
+        }
+
+        .hero-image img {
+          max-width: 80%;
+        }
+
         .section-title {
           font-size: 2rem;
         }
@@ -589,17 +639,24 @@
     <main>
       <section class="hero" style="background: linear-gradient(to right, #e0f7fa, #f0fdf4); background-image: url('background-hero.jpg'); background-size: cover; background-position: center; color: white;">
         <div class="container">
-          <h1 style="color: white; text-shadow: 0 1px 4px rgba(0,0,0,0.3)">Dein kompletter Shop-Report in 60 Sekunden – als PDF</h1>
-          <p style="color: #f0fdf4; font-weight: 500">
-            ✅ Kein Account. ✅ Kein Abo. ✅ Sofortiger PDF-Download.
-          </p>
-          <p style="color: #f0fdf4">
-            Lade deine Shopify-CSV-Dateien hoch und erhalte in Sekunden einen 
-            professionellen Report mit allen wichtigen Zahlen – sicher und ohne Datenweitergabe.
-          </p>
-          <button class="cta-btn" onclick="scrollToReport()">
-            🚀 Jetzt eigenen Report erstellen (kostenlos)
-          </button>
+          <div class="hero-content">
+            <div class="hero-text">
+              <h1>Dein kompletter Shop-Report in 60 Sekunden – als PDF</h1>
+              <p>
+                ✅ Kein Account. ✅ Kein Abo. ✅ Sofortiger PDF-Download.
+              </p>
+              <p>
+                Lade deine Shopify-CSV-Dateien hoch und erhalte in Sekunden einen 
+                professionellen Report mit allen wichtigen Zahlen – sicher und ohne Datenweitergabe.
+              </p>
+              <button class="cta-btn" onclick="scrollToReport()">
+                🚀 Jetzt eigenen Report erstellen (kostenlos)
+              </button>
+            </div>
+            <div class="hero-image">
+              <img src="report-preview.png" alt="Store Report Preview">
+            </div>
+          </div>
         </div>
       </section>
 
